@@ -21,7 +21,6 @@ display(df_matches_silver)
 df_deliveries = spark.table("workspace.default.bronze_deliveries")
 
 # 2. Transformations
-# Kabhi kabhi 'id' column match_id hota hai, use rename karte hain taaki join karne me aasani ho
 df_deliveries_silver = df_deliveries \
     .withColumnRenamed("id", "match_id") \
     .withColumn("total_runs", col("total_runs").cast("integer")) \
